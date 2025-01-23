@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 app = Flask(__name__)
-app.secret_key = '@aB12345'  # Set a secret key for session management
+app.secret_key = 'password'  # Set a secret key for session management
 
 # Initialize the database
 def init_db():
@@ -34,10 +34,8 @@ init_db()
 # Load and preprocess the data
 data = pd.read_csv("C:/Users/91982/Documents/Cognifyz Technologies/Task 1/Dataset.csv")
 
-# Handle missing values
+# Handle missing values and remove duplicates
 data.dropna(inplace=True)
-
-# Remove duplicate rows
 data.drop_duplicates(inplace=True)
 
 # Encode categorical variables
@@ -67,8 +65,8 @@ mse = mean_squared_error(y_test, y_pred)
 r2 = r2_score(y_test, y_pred)
 
 # Save the model and label encoders
-pickle.dump(model, open('random_forest_model.pkl', 'wb'))  # Ensure no space before .pkl
-pickle.dump(label_encoders, open('label_encoders.pkl', 'wb'))  # Ensure no space before .pkl
+pickle.dump(model, open('random_forest_model.pkl', 'wb'))
+pickle.dump(label_encoders, open('label_encoders.pkl', 'wb'))
 
 # Create a folder for visualizations
 visualization_folder = 'static/images/visualizations'
@@ -87,7 +85,7 @@ def login():
 
         if user:
             session['user'] = email
-            return redirect(url_for('home'))  # Redirect to the home page
+            return redirect(url_for('home'))
         else:
             return render_template('login.html', error="Invalid email or password.")
     return render_template('login.html')
