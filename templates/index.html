@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Rating Prediction</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        /* Additional styles for the logout button */
+        a {
+            text-decoration: none; /* Remove underline from links */
+        }
+
+        a:hover {
+            text-decoration: none; /* Ensure no underline on hover */
+        }
+
+        /* Style for the logout button */
+        .logout-button {
+            position: fixed; /* Fix the position */
+            bottom: 20px; /* Distance from the bottom */
+            right: 20px; /* Distance from the right */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f44336; /* Red background */
+            color: white; /* White text */
+            font-size: 16px; /* Font size */
+            font-weight: bold; /* Bold text */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            transition: background-color 0.3s, transform 0.3s; /* Transition effects */
+        }
+
+        .logout-button:hover {
+            background-color: #d32f2f; /* Darker red on hover */
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Restaurant Rating Prediction</h1>
+        <form action="/predict" method="POST">
+            <label for="country_code">Country Code:</label>
+            <input type="number" id="country_code" name="country_code" required>
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+            <label for="average_cost">Average Cost for Two:</label>
+            <input type="number" id="average_cost" name="average_cost" required>
+            <label for="has_table_booking">Has Table Booking:</label>
+            <select id="has_table_booking" name="has_table_booking" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <label for="has_online_delivery">Has Online Delivery:</label>
+            <select id="has_online_delivery" name="has_online_delivery" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <label for="is_delivering_now">Is Delivering Now:</label>
+            <select id="is_delivering_now" name="is_delivering_now" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <label for="price_range">Price Range:</label>
+            <select id="price_range" name="price_range" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <label for="votes">Votes:</label>
+            <input type="number" id="votes" name="votes" required>
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction_text %}
+            <h2>{{ prediction_text }}</h2>
+        {% endif %}
+        <h3>Model Performance</h3>
+        <p>Mean Squared Error: {{ mse }}</p>
+        <p>R² Score: {{ r2 }}</p>
+        <a href="/visualizations" class="nav-link">View Visualizations</a>
+    </div>
+
+    <!-- Logout Button -->
+    <a href="/logout" class="logout-button">Logout</a>
+</body>
+</html>
