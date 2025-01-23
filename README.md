@@ -39,7 +39,7 @@ This project helps organizations identify potential burnout risks and implement 
    ```
 2. Navigate to the project directory:
    ```bash
-   cd Employee_Burnout_Analysis
+   cd cognifyz-Technologies_Task-1
    ```
 3. Install dependencies:
    ```bash
