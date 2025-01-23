@@ -35,7 +35,7 @@ This project helps organizations identify potential burnout risks and implement 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Ronak1231/Employee_Burnout_Analysis.git
+   git clone [https://github.com/Ronak1231/Employee_Burnout_Analysis.git](https://github.com/Ronak1231/cognifyz-Technologies_Task-1.git)
    ```
 2. Navigate to the project directory:
    ```bash
