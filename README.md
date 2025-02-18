@@ -76,6 +76,7 @@ Machine_Learning_Restaurant_Task-1/
 │   ├── login.html
 │   ├── register.html
 │   ├── visualization.html
+|
 ├── app.py
 ├── requirements.txt
 ├── LICENSE
