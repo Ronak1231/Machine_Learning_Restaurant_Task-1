@@ -69,7 +69,7 @@ Machine_Learning_Restaurant_Task-1/
 |        ├── script.js
 |
 ├── Trail
-│   ├── Restaurant_Task-1_
+│   ├── Restaurant_Task-1
 |
 ├── templates
 │   ├── index.html
